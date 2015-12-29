@@ -1,7 +1,7 @@
 
 Template.postsList.helpers({
   posts: function(){
-    return Posts.find({author: 'bob', category: 'JavaScript'});
+    return Posts.find();
   }
 });
 // Template.postsList.onRendered(function () {
