@@ -1,7 +1,12 @@
 <template name="postItem">
+<!-- used within postsList & postPage-->
   <div class="post">
     <div class="post-content">
       <h3><a href="{{url}}">{{title}}</a><span>{{domain}}</span></h3>
     </div>
+    <a href="{{pathFor 'postPage'}}" class="discuss btn btn-default">Discuss</a>
+    <!--  same effect as /posts/{{_id}} -->
+    <!-- pathFor looks for route, which fills in the post obj's this._id  -->
+    <!--  in the Router.route('/posts/:id'){ name:'postPage',..} -->
   </div>
 </template>
