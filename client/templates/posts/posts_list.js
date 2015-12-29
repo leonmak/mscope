@@ -1,19 +1,9 @@
-var postsData = [ {
-  title: 'Introducing Telescope',
-  url: 'http://sachagreif.com/introducing-telescope/'
-},
-{
-  title: 'Meteor',
-  url: 'http://meteor.com'
-}, {
-  title: 'The Meteor Book',
-  url: 'http://themeteorbook.com'
-}
-];
-Template.postsList.helpers({
-  posts: postsData
-});
 
+Template.postsList.helpers({
+  posts: function(){
+    return Posts.find({author: 'bob', category: 'JavaScript'});
+  }
+});
 // Template.postsList.onRendered(function () {
 //   this.find('.wrapper')._uihooks = {
 //     insertElement: function (node, next) {
