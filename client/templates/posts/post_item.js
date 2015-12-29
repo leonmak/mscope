@@ -5,11 +5,11 @@ Template.postItem.helpers({
   domain: function() {
     var a = document.createElement('a');
     a.href = this.url;
-    return a.hostname;
+  return a.hostname;
   },
-  commentsCount: function() {
-    return Comments.find({postId: this._id}).count();
-  },
+  // commentsCount: function() {
+  //   return Comments.find({postId: this._id}).count();
+  // },
   upvotedClass: function() {
     var userId = Meteor.userId();
     if (userId && !_.include(this.upvoters, userId)) {

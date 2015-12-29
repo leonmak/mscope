@@ -6,6 +6,7 @@ if (Posts.find().count() === 0) {
     profile: { name: 'Tom Coleman' }
   });
   var tom = Meteor.users.findOne(tomId);
+
   var sachaId = Meteor.users.insert({
     profile: { name: 'Sacha Greif' }
   });
@@ -16,7 +17,8 @@ if (Posts.find().count() === 0) {
     userId: tom._id,
     author: tom.profile.name,
     url: 'http://meteor.com',
-    submitted: new Date(now - 10 * 3600 * 1000)
+    submitted: new Date(now - 10 * 3600 * 1000),
+commentsCount: 2
   });
 
 
@@ -25,6 +27,8 @@ if (Posts.find().count() === 0) {
     userId: tom._id,
     author: tom.profile.name,
     url: 'http://themeteorbook.com',
+    commentsCount: 2,
+
     submitted: new Date(now - 12 * 3600 * 1000)
   });
   Posts.insert({
@@ -38,7 +42,8 @@ if (Posts.find().count() === 0) {
     userId: tom._id,
     author: tom.profile.name,
     submitted: new Date(now - 5 * 3600 * 1000),
-    body: 'Interesting project Sacha, can I get involved?'
+    body: 'Interesting project Sacha, can I get involved?',
+
   });
 
   Comments.insert({
@@ -47,5 +52,19 @@ if (Posts.find().count() === 0) {
     author: sacha.profile.name,
     submitted: new Date(now - 3 * 3600 * 1000),
     body: 'You sure can Tom!'
+
   });
+
+
+  for (var i = 0; i < 10; i++) {
+    Posts.insert({
+      title: 'Test post #' + i,
+      author: sacha.profile.name,
+      userId: sacha._id,
+      url: 'http://google.com/?q=test-' + i,
+      submitted: new Date(now - i * 3600 * 1000 + 1),
+      commentsCount: 0
+    });
+  }
+
 }
