@@ -2,9 +2,10 @@
 <!-- used within postsList & postPage-->
   <div class="post">
     <div class="post-content">
+      <a href="#" class="upvote btn btn-default {{upvotedClass}}">⬆</a>
       <h3><a href="{{url}}">{{title}}</a><span>{{domain}}</span></h3>
       <p>
-        submitted by {{author}},
+        {{votes}} Votes, submitted by {{author}},
         <a href="{{pathFor 'postPage'}}">{{commentsCount}} comments</a>
         {{#if ownPost}}<a href="{{pathFor 'postEdit'}}">Edit</a>{{/if}}
       </p>
