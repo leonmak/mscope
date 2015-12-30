@@ -12,6 +12,7 @@ Template.postItem.helpers({
   // },
   upvotedClass: function() {
     var userId = Meteor.userId();
+// only show button if logged in and haven't voted
     if (userId && !_.include(this.upvoters, userId)) {
       return 'btn-primary upvotable';
     } else {
