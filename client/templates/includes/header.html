@@ -12,21 +12,23 @@
 
     {{#if currentUser}}
     <ul class="nav navbar-nav">
-      <li><a href="{{pathFor 'postSubmit'}}">Submit Post</a></li>
+      <li class="{{activeRouteClass  'postSubmit'}}">
+        <a href="{{pathFor 'postSubmit'}}">Submit Post</a>
+      </li>
 
-      <li>
+      <li class="{{activeRouteClass 'home' 'newPosts'}}">
         <a href="{{pathFor 'newPosts'}}">New</a>
       </li>
-      <li>
+      <li class="{{activeRouteClass  'bestPosts'}}">
         <a href="{{pathFor 'bestPosts'}}">Best</a>
       </li>
 
     </ul>
     <ul class="nav navbar-nav">
-    <li class="dropdown">
-      {{> notifications}}
-    </li>
-  </ul>
+      <li class="dropdown">
+        {{> notifications}}
+      </li>
+    </ul>
     {{/if}}
   </div>
 </template>
